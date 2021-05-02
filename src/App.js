@@ -9,7 +9,7 @@ class App extends Component {
       <React.Fragment>
         <NavBar />
         <header className="App-header">
-            <h1>Đạt js</h1>
+            <h1>Đạt react què quặt</h1>
             <img src={linkAvatar} className="App-logo" alt="logo" />        
         </header>
         <main className='container'>
