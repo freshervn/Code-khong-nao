@@ -1,0 +1,22 @@
+@mixin inheritsize($font-size) {
+    font-size: $font-size;
+    * {
+        font-size: $font-size;
+    }
+}
+@mixin resize($font-size, $Subtrahend) {
+    @include inheritsize($font-size);
+    @media screen and (max-width: 567px) {
+        $font-size: $font-size - $Subtrahend;
+        font-size: $font-size;
+        @include inheritsize($font-size);
+    }
+}
+@mixin paragraph-limited($numberline) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $numberline;
+    -webkit-box-orient: vertical;
+    height: $numberline * 1.5em + 0.1em;
+}

@@ -1,0 +1,8 @@
+@import '_setup.scss';
+@font-face{
+    src: url('../Noto_Sans/NotoSans-Regular.ttf');
+    font-family: NotoSans-Regular;
+}
+body{
+    color: $font-color-2;
+}

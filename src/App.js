@@ -1,21 +1,11 @@
-import linkAvatar from './images/mikasa.jpg';
 import './App.css';
-import Counters from './components/counters';
-import NavBar from './components/navbar';
+import './Scss/thuvien.scss';
 import React, { Component } from 'react';
+import Header from './thuVienProject/header'
 class App extends Component {
   render(){
     return (
-      <React.Fragment>
-        <NavBar />
-        <header className="App-header">
-            <h1>Đạt react què quặt</h1>
-            <img src={linkAvatar} className="App-logo" alt="logo" />        
-        </header>
-        <main className='container'>
-          <Counters/>
-        </main>
-      </React.Fragment>
+      <Header/>
     );
   }
 }

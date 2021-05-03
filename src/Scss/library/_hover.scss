@@ -1,0 +1,301 @@
+// hover
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+%shake {
+    &:hover {
+        animation: shake 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+    }
+}
+@mixin boxshadown($offset, $burl, $spread, $color) {
+    $shadown-X: $offset;
+    $shadown-Y: $offset;
+    $shadown-blur-radius: $burl;
+    $shadown-spread-radius: $spread;
+    $shadown-color: $color;
+    box-shadow: ($shadown-X) (-$shadown-Y) $shadown-blur-radius $shadown-blur-radius $shadown-color,
+        (-$shadown-X) ($shadown-Y) $shadown-blur-radius $shadown-blur-radius $shadown-color,
+        ($shadown-X) ($shadown-Y) $shadown-blur-radius $shadown-blur-radius $shadown-color,
+        (-$shadown-X) (-$shadown-Y) $shadown-blur-radius $shadown-blur-radius $shadown-color;
+}
+@keyframes fadeup {
+    0% {
+        opacity: 0;
+        transform: translateY(10%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+@keyframes shine {
+    50% {
+        left: 125%;
+    }
+    100% {
+        left: 125%;
+    }
+}
+%shine {
+    position: relative;
+    overflow: hidden;
+    &::before {
+        position: absolute;
+        top: 0;
+        left: -75%;
+        z-index: 2;
+        display: block;
+        content: "";
+        width: 50%;
+        height: 100%;
+        background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+        -webkit-transform: skewX(-25deg);
+        transform: skewX(-25deg);
+    }
+    &:hover::before {
+        animation: shine 1.5s;
+        animation-iteration-count: infinite;
+    }
+}
+// active
+@keyframes blurIn {
+    0% {
+        filter: blur(3px);
+    }
+    30% {
+        filter: blur(2px);
+    }
+    60% {
+        filter: blur(1px);
+    }
+    100% {
+        fill: blur(0px);
+    }
+}
+%flash {
+    &:active {
+        animation-name: blurIn;
+        animation-duration: 0.3s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+    }
+}
+%flyup {
+    transition: 0.3s ease-in-out;
+    &::after {
+        transition: 0.3s ease-in-out;
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 50%;
+        transform: translateX(-50%) translateY(3px);
+        height: 0px;
+        width: 0%;
+        border-radius: 50%;
+        background-color: black;
+        filter: blur(3px);
+    }
+    &:hover {
+        transform: translateY(-2px);
+        position: relative;
+        &::after {
+            width: 90%;
+            height: 1px;
+        }
+    }
+}
+@keyframes wave {
+    0% {
+        transform: translate(2px, 0px) rotate(0deg);
+    }
+    10% {
+        transform: translate(4px, 0px) rotate(-1deg);
+    }
+    20% {
+        transform: translate(6px, 0px) rotate(1deg);
+    }
+    30% {
+        transform: translate(8px, 0px) rotate(0deg);
+    }
+    40% {
+        transform: translate(7px, 0px) rotate(1deg);
+    }
+    50% {
+        transform: translate(6px, 0px) rotate(-1deg);
+    }
+    60% {
+        transform: translate(5px, 0px) rotate(0deg);
+    }
+    70% {
+        transform: translate(4px, 0px) rotate(-1deg);
+    }
+    80% {
+        transform: translate(3px, 0px) rotate(1deg);
+    }
+    90% {
+        transform: translate(2px, 0px) rotate(0deg);
+    }
+    100% {
+        transform: translate(1px, 0px) rotate(-1deg);
+    }
+}
+%wave {
+    &:hover {
+        animation-name: wave;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+    }
+}
+@keyframes boomboom {
+    0% {
+        transform: scale(1.05);
+    }
+    10% {
+        transform: scale(1.12);
+    }
+    30% {
+        transform: scale(1.05);
+    }
+    40% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+    60% {
+        transform: scale(1.3);
+    }
+    70% {
+        transform: scale(1.2);
+    }
+    80% {
+        transform: scale(1.15);
+    }
+    90% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+%boomboom {
+    &:hover {
+        animation-name: boomboom;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-duration: 2s;
+    }
+}
+@keyframes slideX {
+    0% {
+        right: 100%;
+    }
+    100% {
+        right: 15px;
+    }
+}
+%slideX {
+    animation-name: slideX;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+}
+@keyframes floattingbtn {
+    0% {
+        background-image: linear-gradient(-45deg, invert(orange) 0%, invert(red) 0%, invert(orange) 90%);
+    }
+    5% {
+        background-image: linear-gradient(-45deg, invert(orange) 0%, invert(red) 5%, invert(orange) 91%);
+    }
+    10% {
+        background-image: linear-gradient(-45deg, invert(orange) 0%, invert(red) 10%, invert(orange) 92%);
+    }
+    15% {
+        background-image: linear-gradient(-45deg, invert(orange) 0%, invert(red) 15%, invert(orange) 93%);
+    }
+    20% {
+        background-image: linear-gradient(-45deg, invert(orange) 0%, invert(red) 20%, invert(orange) 94%);
+    }
+    25% {
+        background-image: linear-gradient(-45deg, invert(orange) 0%, invert(red) 25%, invert(orange) 95%);
+    }
+    30% {
+        background-image: linear-gradient(-45deg, invert(orange) 0%, invert(red) 30%, invert(orange) 96%);
+    }
+    35% {
+        background-image: linear-gradient(-45deg, invert(orange) 0%, invert(red) 35%, invert(orange) 97%);
+    }
+    40% {
+        background-image: linear-gradient(-45deg, invert(orange) 0%, invert(red) 40%, invert(orange) 98%);
+    }
+    45% {
+        background-image: linear-gradient(-45deg, invert(orange) 0%, invert(red) 45%, invert(orange) 99%);
+    }
+    50% {
+        background-image: linear-gradient(-45deg, invert(orange) 0%, invert(red) 50%, invert(orange) 100%);
+    }    
+    55% {
+        background-image: linear-gradient(-45deg, invert(orange) 1%, invert(red) 55%, invert(orange) 100%);    
+    }
+    60% {
+        background-image: linear-gradient(-45deg, invert(orange) 2%, invert(red) 60%, invert(orange) 100%);
+    }
+    65% {
+        background-image: linear-gradient(-45deg, invert(orange) 3%, invert(red) 65%, invert(orange) 100%);
+    }
+    70% {
+        background-image: linear-gradient(-45deg, invert(orange) 4%, invert(red) 70%, invert(orange) 100%);
+    }
+    75% {
+        background-image: linear-gradient(-45deg, invert(orange) 5%, invert(red) 75%, invert(orange) 100%);
+    }
+    80% {
+        background-image: linear-gradient(-45deg, invert(orange) 6%, invert(red) 80%, invert(orange) 100%);
+    }
+    85% {
+        background-image: linear-gradient(-45deg, invert(orange) 7%, invert(red) 85%, invert(orange) 100%);
+    }
+    90% {
+        background-image: linear-gradient(-45deg, invert(orange) 8%, invert(red) 90%, invert(orange) 100%);
+    }
+    95% {
+        background-image: linear-gradient(-45deg, invert(orange) 9%, invert(red) 95%, invert(orange) 100%);
+    }
+    100% {
+        background-image: linear-gradient(-45deg, invert(orange) 10%, invert(red) 100%, invert(orange) 100%);
+    }
+}
